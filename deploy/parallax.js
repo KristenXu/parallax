@@ -339,14 +339,14 @@
       }
       else if (!this.desktop && this.motionSupport) {
         this.portrait = null;
-        window.addEventListener('devicemotion', this.onDeviceMotion);
+        this.element.addEventListener('devicemotion', this.onDeviceMotion);
         setTimeout(this.onMotionTimer, this.supportDelay);
       }
       else {
         this.cx = 0;
         this.cy = 0;
         this.portrait = false;
-        window.addEventListener('mousemove', this.onMouseMove);
+        this.element.addEventListener('mousemove', this.onMouseMove);
       }
       window.addEventListener('resize', this.onWindowResize);
       this.raf = requestAnimationFrame(this.onAnimationFrame);
@@ -524,7 +524,7 @@
       // Set Input
       this.ix = x;
       this.iy = y;
-  }
+  };
   Parallax.prototype.onDeviceOrientation = function(event) {
     // Validate environment and event properties.
     var beta = event.beta;
